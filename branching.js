@@ -13,5 +13,5 @@ if (userLogin === '' || userLogin === null ) {
         alert('Password incorrect')
     }
 } else {
-    alert('Je sous Admin')
+    alert('Je sous Admin.')
 }
