@@ -11,6 +11,8 @@ function calc( operator, a , b ) {
         
         case 'multiple' :
             return a * b;
+
+        default: return console.log('Choose the operation');
     }
 }
 
