@@ -1,3 +1,4 @@
+
 let userLogin = prompt('Who is there?')
 
 if (userLogin === '' || userLogin === null ) {
@@ -12,5 +13,5 @@ if (userLogin === '' || userLogin === null ) {
         alert('Password incorrect')
     }
 } else {
-    alert('Je sous Sasha')
+    alert('Je sous Admin')
 }
