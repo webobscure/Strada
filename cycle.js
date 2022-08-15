@@ -1,7 +1,8 @@
 let i = 1
     // цикл while с постусловием
     do {
-        console.log(i++);
+        console.log(i);
+        i++
     } while (i <= 19)
 
     // цикл for
@@ -14,7 +15,8 @@ let i = 1
     // цикл while с предусловием
 
     while (i <= 19) {
-        console.log(i++);
+        console.log(i);
+        i++
     }
 
 
