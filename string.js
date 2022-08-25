@@ -1,6 +1,8 @@
 function showVerticalMessage(str) {
     if(!str) return str;
 
+    str = str.substring(0, 7);
+
     for (let char of str) {
         if (char === 's') {
             console.log(char.toUpperCase());
@@ -11,4 +13,4 @@ function showVerticalMessage(str) {
 }
 
 
-showVerticalMessage('strada')
+showVerticalMessage('stradaaaaaaaaaaaa')
