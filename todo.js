@@ -1,81 +1,74 @@
 const STATUS = {
-  InPr: 'In Progress',
-  Done: 'Done',
-  Todo: 'Todo',
+  INPROGRESS: 'In Progress',
+  DONE: 'Done',
+  TODO: 'Todo',
 };
 
-const list = {
-  coding: STATUS.InPr,
-  work: STATUS.Todo,
-  workout: STATUS.Done,
+const PRIORITY = {
+  HIGH: 'high',
+  LOW: 'LOW'
 };
 
-function changeStatus(task, status) {
-  if (list.task == undefined) {
-    console.log(`${task} cannot be changed cause it's not in list`);
+const list = [{
+  name: 'create a task', status: STATUS.INPROGRESS, priority: PRIORITY.LOW
+}]
+
+function addTask(name, status = STATUS.INPROGRESS, priority = PRIORITY.HIGH) {
+  list.push({name, status, priority})
+}
+
+function deleteTask(name) {
+  if (list.find( item => item.name == name)) {
+    list.splice(list.findIndex(item => name == item.name))
   } else {
-    list[task] = status;
-    console.log(`${task} has successfully changed`);
+    return console.log(`This task doesn't exist`);
   }
 }
 
-function addTask(task) {
-  if (task in list) {
-    console.log(`${task} already exists`);
+function changeStatus(name, status = STATUS.INPROGRESS) {
+  let result = list.findIndex(item => item.name == name);
+  if (result === -1) {
+    console.log(`This task doesn't exist.You can't change the status for a non-existent task`);
   } else {
-    list.task = STATUS.Todo;
-    console.log(`${task} was successfully created`);
+    list[result].status = status;
   }
 }
 
-function deleteTask(task) {
-  if (task in list) {
-    delete task;
+function changePriority(name, priority) {
+  let result = list.findIndex( item => item.name == name);
+  if (result === -1) {
+    console.log(`This task doesn't exist.You can't change the priority for a non-existent task`);
   } else {
-    console.log(`${task} don't exists`);
+    list[result].priority = priority
   }
 }
 
 function showList() {
-  let statToDo = '';
-  let statInPr = '';
-  let statDone = '';
 
-  for (let key in list) {
-    if (list[key] == STATUS.To_Do) {
-      statToDo += `"${key}"\n `;
-    }
-    if (list[key] == STATUS.In_Progress) {
-      statInPr += `"${key}"\n `;
-    }
-
-    if (list[key] == STATUS.Done) {
-      statDone += `"${key}"\n `;
-    }
-  }
-  console.log(`\n `);
-
-  if (statToDo !== '') {
-    console.log(`To Do:\n` + statToDo);
-  } else {
-    console.log(`To Do:\n - \n`);
-  }
-
-  if (statDone !== '') {
-    console.log(`Done:\n` + statDone);
-  } else {
-    console.log(`Done:\n - \n `);
-  }
-
-  if (statInPr !== '') {
-    console.log(`In Progress:\n` + statInPr);
-  } else {
-    console.log(`In Progress:\n - \n `);
-  }
+	console.log(`${STATUS.DONE}:`)
+	for (let task of list ) {
+		if (task.status === STATUS.DONE) {
+			console.log(` -Task: ${task.name}, Priority: ${task.priority}.`);
+		}
+	}
+	console.log(`${STATUS.TODO}:`)
+	for (let task of list ) {
+		if (task.status === STATUS.TODO) {
+			console.log(` -Task: ${task.name}, Priority: ${task.priority}.`);
+		}
+	}
+	console.log(`${STATUS.INPROGRESS}:`)
+	for (let task of list ) {
+		if (task.status === STATUS.INPROGRESS) {
+			console.log(` -Task: ${task.name}, Priority: ${task.priority}.`);
+		}
+	}
 }
 
-addTask('playing');
-addTask('listen music');
-deleteTask('playing');
-changeStatus('listen music', 'done');
+changePriority ('test', PRIORITY.LOW) ;	
+changeStatus ('test', STATUS.DONE);
+deleteTask('test');
+addTask('make salad');
+addTask('go for a walk', STATUS.TODO);
+
 showList();
