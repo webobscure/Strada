@@ -1,3 +1,27 @@
+let firstOperand = document.getElementById('firstOperand')
+let secondOperand = document.getElementById('secondOperand')
+let operator = document.getElementById('operator')
+let result = document.getElementById('result')
+let equal = document.getElementById('equal')
+
+
+
+
+
+
+equal.onclick = function(event) {
+    if (checkOperands(a) && checkOperands(b)) {
+        switch(operator) {
+            
+        }
+    }
+}
+
+
+console.log(result,firstOperand,secondOperand);
+
+
+
 let operations = {
     add: 'add',
     substract: 'substract',
@@ -35,8 +59,4 @@ function checkOperands(operand) {
     return typeof operand === 'number'
 }
 
-console.log(calc(operations.add, 5, 3));
-console.log(calc(operations.substract, 200, 245));
-console.log(calc(operations.divide, 50, 7));
-console.log(calc(operations.multiple, 5, 10))
-console.log(calc(operations.multiple, 2, 10));
+

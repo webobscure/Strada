@@ -8,7 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Можно подключить калькулятор и функцию с ветвлением.  </p>
+    <h2>Calculator</h2>
+    <input type="number" name="firstOperand" id="firstOperand">
+    <select name="operator" id="operator">
+        <option value="add">+</option>
+        <option value="substract">-</option>
+        <option value="divide">/</option>
+        <option value="multiple">*</option>
+    </select>
+    <input type="number" name="secondOperand" id="secondOperand">
+    <button type="submit" id="equal"> = </button>
+    <h2 id="result"> </h2>
 </body>
-<script src="cycle.js"></script>
+<script src="calculator.js"></script>
 </html>

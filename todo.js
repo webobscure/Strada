@@ -6,7 +6,7 @@ const STATUS = {
 
 const PRIORITY = {
   HIGH: 'high',
-  LOW: 'LOW'
+  LOW: 'low'
 };
 
 const list = [{
