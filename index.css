@@ -1,0 +1,30 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body { 
+  background: linear-gradient(to right, #659999, #240b36);
+}
+
+.calculator {
+  border-radius: 10%;
+  margin: auto;
+  max-width: 600px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.calculator > * {
+  margin-left: 5px;
+}
+
+

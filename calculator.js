@@ -1,26 +1,5 @@
-let firstOperand = document.getElementById('firstOperand')
-let secondOperand = document.getElementById('secondOperand')
-let operator = document.getElementById('operator')
-let result = document.getElementById('result')
-let equal = document.getElementById('equal')
-
-
-
-
-
-
-equal.onclick = function(event) {
-    if (checkOperands(a) && checkOperands(b)) {
-        switch(operator) {
-            
-        }
-    }
-}
-
-
-console.log(result,firstOperand,secondOperand);
-
-
+let result = document.getElementById('result');
+let equal = document.getElementById('equal');
 
 let operations = {
     add: 'add',
@@ -30,7 +9,11 @@ let operations = {
     pow: 'pow'
 }
 
-function calc( operator, a , b ) {
+function calc( ) {
+    let a = +document.querySelectorAll('.numbers')[0].value;
+    let b = +document.querySelectorAll('.numbers')[1].value;
+    let operator = document.getElementById('operator').value;
+
     if (checkOperands(a) && checkOperands(b)) {
         switch(operator) {
             case operations.add :
@@ -54,6 +37,8 @@ function calc( operator, a , b ) {
 
     return 'Incorrect operands'
 }
+
+equal.addEventListener('click', () => result.innerHTML = +calc().toFixed(10))
 
 function checkOperands(operand) {
     return typeof operand === 'number'
