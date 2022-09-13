@@ -1,47 +1,66 @@
-let result = document.getElementById('result');
-let equal = document.getElementById('equal');
+let equals = document.querySelector("#equals");
+let result = document.querySelector(".result");
+let operator = document.querySelector("#identifier");
+let firstNumber = document.querySelector(".a");
+let secondNumber = document.querySelector(".b");
+let functionResult;
 
-let operations = {
-    add: 'add',
-    substract: 'substract',
-    divide: 'divide',
-    multiple: 'multiple',
-    pow: 'pow'
+let containerForNewDiv = document.querySelector(".container__saves-results");
+
+//Создаем новый div, который будет содержать в себе сохраненный ответ
+function saveResult(functionResult) {
+
+	let myDiv = document.createElement("div");
+
+	//Вешаем на него сразу событие клика, чтобы по клику удалялся
+	myDiv.addEventListener("click", function () {
+		myDiv.remove();
+	});
+
+	//стили для создаваемого div
+	myDiv.style.cursor = "pointer";
+	myDiv.style.width = "fit-content";
+	myDiv.style.margin = "0 auto";
+
+	//Передаем в новый созданный div результат функции
+	myDiv.textContent = functionResult;
+	containerForNewDiv.append(myDiv);
 }
 
-function calc( ) {
-    let a = +document.querySelectorAll('.numbers')[0].value;
-    let b = +document.querySelectorAll('.numbers')[1].value;
-    let operator = document.getElementById('operator').value;
+//вешаем событие на кнопку равно
+equals.addEventListener("click", function () {
+	operator = document.querySelector("#identifier").value;
+	firstNumber = document.querySelector(".a").value;
+	secondNumber = document.querySelector(".b").value;
 
-    if (checkOperands(a) && checkOperands(b)) {
-        switch(operator) {
-            case operations.add :
-              return  a + b;
-            
-            case operations.substract :
-                return  a - b;
-            
-            case operations.divide :
-                return parseInt(a / b);
-            
-            case operations.multiple :
-                return a * b;
-    
-            case operations.pow : 
-                return a ** b;
-    
-            default: return console.log('Choose the operation!');
-        }
-    } 
+	functionResult = Number(calc(operator, firstNumber, secondNumber).toFixed(2));
 
-    return 'Incorrect operands'
+	//проверяем все ли поля заполнены
+	if (firstNumber == "" || secondNumber == "") {
+		result.textContent = "Пожалуйста введите все числа";
+		result.style.color = "red";
+	} else {
+		//Передаем результат функции в span
+		result.textContent = functionResult;
+		result.style.color = "green";
+
+		saveResult(functionResult);
+	}
+});
+
+//сама функция калькулятора
+function calc(identifier, a, b) {
+	switch (identifier) {
+		case "+":
+			return Number(a) + Number(b);
+
+		case "*":
+			return a * b;
+
+		case "-":
+			return a - b;
+
+		case "/":
+			return a / b;
+	}
 }
-
-equal.addEventListener('click', () => result.innerHTML = +calc().toFixed(10))
-
-function checkOperands(operand) {
-    return typeof operand === 'number'
-}
-
-

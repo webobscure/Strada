@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
-  </head>
-  <body>
-    <div class="calculator">
-      <input type="number" class="numbers" name="firstOperand" id="firstOperand" />
-      <select name="operator" id="operator">
-        <option value="add">+</option>
-        <option value="substract">-</option>
-        <option value="divide">/</option>
-        <option value="multiple">*</option>
-      </select>
-      <input type="number" class="numbers" name="secondOperand" id="secondOperand" />
-      <button type="submit" id="equal">=</button>
-      <h2 id="result"></h2>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="container-calc">
+            <div class="container-parametrs-calc">
+                <input type="number" class="a">
+                <select name="" id="identifier">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="number" class="b">
+                <button id="equals">=</button>
+                <span class="result"> </span>
+            </div>
+            <div class="container__saves-results">
+                <h2>Сохраненные результаты:</h2>
+            </div>
+        </div>
     </div>
-  </body>
-  <script src="calculator.js"></script>
+
+    <script src="calculator.js"></script>
+</body>
+
 </html>
